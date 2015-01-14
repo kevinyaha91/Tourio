@@ -1,2 +1,84 @@
 <h1>Welcome to no paid tour guide app</h1>
 
+<!--
+<input type="submit" value="Your coordinates" onclick=showlocation()>
+
+<SCRIPT>
+function showlocation(){
+    navigator.geolocation.watchPosition(callback);
+}
+function callback(position){
+    var latitude =position.coords.latitude;
+    var longitude =position.coords.longitude;
+    var data = {
+    		coordinates: {
+    			longitude: longitude, 
+    			latitude: latitude
+    		}
+    	};
+    $.ajax({
+		type: "POST",
+		url: "/nearby_guides",
+		data: data,
+		success: function (json){
+			console.log("success!")
+		},
+		dataType: "json"
+	});
+}
+</SCRIPT>
+
+-->
+<div id='demo'>
+</div>
+<input type="submit" value="Your coordinates" onclick=getLocation()>
+
+
+<script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5E_WnVSBNz5it07jKXOsoKdSlSOdtiB0">
+</script>
+
+
+
+
+<script>
+
+document.onload = function initialize() {
+    var geocoder = new google.maps.Geocoder();
+    }
+
+var x = document.getElementById("demo");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function codeLatLng(latitude, longitude){
+	var geocoder = new google.maps.Geocoder();
+	var latlng = new google.maps.LatLng(latitude, longitude);
+    geocoder.geocode({'latLng': latlng}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+      	var locationInfo = document.getElementById("demo");
+      	locationInfo.innerHTML=results[3].formatted_address;
+      } else {
+        alert("Geocoder failed due to: " + status);
+      }
+    });
+}
+
+function showPosition(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude; 
+    codeLatLng(latitude, longitude);
+}
+
+
+
+
+
+</script>
+
+
