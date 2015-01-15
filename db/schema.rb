@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111022519) do
+ActiveRecord::Schema.define(version: 20150114235208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contracts", force: true do |t|
+    t.integer  "contractor_id"
+    t.integer  "contractee_id"
+    t.date     "date"
+    t.time     "time"
+    t.string   "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "searches", force: true do |t|
     t.string   "keyword"
@@ -23,6 +33,24 @@ ActiveRecord::Schema.define(version: 20150111022519) do
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "tour_guides", force: true do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.text     "bio"
+    t.string   "ideal_day"
+    t.string   "keywords"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "email"
+    t.string   "password"
+    t.string   "password_digest"
   end
 
   create_table "users", force: true do |t|
@@ -36,6 +64,7 @@ ActiveRecord::Schema.define(version: 20150111022519) do
     t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "tour_guide"
   end
 
 end
