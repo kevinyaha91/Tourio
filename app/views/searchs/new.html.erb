@@ -13,6 +13,7 @@
   <p>You are currently not a tour guide.</p>
 <% end %> 
 
+ 
 <div id='demo'></div>
 
 <input type="submit" value="Your coordinates" onclick=getLocation()>
@@ -24,8 +25,8 @@
 <script>
 
 document.onload = function initialize() {
-    var geocoder = new google.maps.Geocoder();
-    }
+  var geocoder = new google.maps.Geocoder();
+}
 
 var x = document.getElementById("demo");
 function getLocation() {
@@ -42,7 +43,7 @@ function codeLatLng(latitude, longitude){
     geocoder.geocode({'latLng': latlng}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
       	var locationInfo = document.getElementById("demo");
-      	locationInfo.innerHTML=results[3].formatted_address;
+      	locationInfo.innerHTML=results[2].formatted_address;
       } else {
         alert("Geocoder failed due to: " + status);
       }

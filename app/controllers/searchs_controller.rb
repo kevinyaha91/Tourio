@@ -5,4 +5,6 @@ def new
 	@tour_guide = @current_user.tour_guide
 end
 
-end
+
+
+
