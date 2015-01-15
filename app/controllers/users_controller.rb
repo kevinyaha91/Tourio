@@ -14,7 +14,17 @@ class UsersController < ApplicationController
     end  
 
     def activate_tour_guide
-      user = 
+      user = User.find(params[:user_id])
+      tour_guide = user.tour_guide
+      if tour_guide
+        user.tour_guide = false
+        user.save
+        redirect_to new_search_path(:user_id => user.id)
+      else
+        user.tour_guide = true 
+        user.save
+        redirect_to new_search_path(:user_id => user.id)
+      end
     end 
 
     private

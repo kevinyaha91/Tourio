@@ -1,47 +1,25 @@
 <h1>Welcome to no paid tour guide app</h1>
 
-<!--
-<input type="submit" value="Your coordinates" onclick=showlocation()>
+<%= @current_user.firstname %> <%= @current_user.lastname %>
+<%= form_tag user_activate_tour_guide_path(:user_id => @current_user.id), method: :get do  %>
+  <%= submit_tag 'Turn on Tour Guide' %>
+<% end %>
 
-<SCRIPT>
-function showlocation(){
-    navigator.geolocation.watchPosition(callback);
-}
-function callback(position){
-    var latitude =position.coords.latitude;
-    var longitude =position.coords.longitude;
-    var data = {
-    		coordinates: {
-    			longitude: longitude, 
-    			latitude: latitude
-    		}
-    	};
-    $.ajax({
-		type: "POST",
-		url: "/nearby_guides",
-		data: data,
-		success: function (json){
-			console.log("success!")
-		},
-		dataType: "json"
-	});
-}
-</SCRIPT>
+<% if @tour_guide %>
+  <p>You are now a tour guide.</p>
+<% end %>
 
--->
+<% if @tour_guide == false %>
+  <p>You are currently not a tour guide.</p>
+<% end %> 
 
+<div id='demo'></div>
 
-<div id='demo'>
-</div>
 <input type="submit" value="Your coordinates" onclick=getLocation()>
-
 
 <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5E_WnVSBNz5it07jKXOsoKdSlSOdtiB0">
 </script>
-
-
-
 
 <script>
 

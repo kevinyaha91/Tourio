@@ -35,6 +35,24 @@ ActiveRecord::Schema.define(version: 20150114235208) do
     t.datetime "updated_at"
   end
 
+  create_table "tour_guides", force: true do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.text     "bio"
+    t.string   "ideal_day"
+    t.string   "keywords"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "email"
+    t.string   "password"
+    t.string   "password_digest"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "password_digest"
