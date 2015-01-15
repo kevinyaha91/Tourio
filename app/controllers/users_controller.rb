@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-	def new
+	  def new
     end
 
     def create
@@ -11,12 +11,18 @@ class UsersController < ApplicationController
     	else
       		redirect_to '/signup'
     	end
-    end   
+    end  
+
+    def activate_tour_guide
+      user = 
+    end 
 
     private
 
   	def user_params
-    	params.require(:user).permit(:firstname, :email, :lastname, :bio, :city, :state, :country, :password, :password_confirmation)
+    	params.require(:user).permit(:firstname, :email, :lastname, :bio, :city, :state, :country, :password, :password_confirmation, :tour_guide)
   	end
+
+
 	
 end

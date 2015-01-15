@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   root to: "sessions#new"
 
-  resources :users
+  resources :users do
+    get 'activate_tour_guide', to: 'users#activate_tour_guide'
+  end
   resources :sessions
   resources :searchs
 

@@ -11,6 +11,8 @@
   State: <%= f.text_field :state %>
   Country: <%= f.text_field :country %>
   Bio: <%= f.text_field :bio %>
+  <%= f.hidden_field :tour_guide, value: false %>
+
   <%= f.submit "Submit" %>
 
 <% end %>
