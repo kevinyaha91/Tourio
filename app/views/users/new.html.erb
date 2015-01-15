@@ -2,15 +2,33 @@
 
 <%= form_for :user, url: '/users' do |f| %>
 
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  Firstname: <%= f.text_field :firstname %>
-  Lastname: <%= f.text_field :lastname %>
-  City: <%= f.text_field :city %>
-  State: <%= f.text_field :state %>
-  Country: <%= f.text_field :country %>
-  Bio: <%= f.text_field :bio %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password %> 
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation%> 
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.label :firstname %>
+  <%= f.text_field :firstname %>
+
+  <%= f.label :lastname%>
+  <%= f.text_field :lastname %>
+
+  <%= f.label :city %>
+  <%= f.text_field :city %>
+
+  <%= f.label :state %>
+  <%= f.text_field :state %>
+
+  <%= f.label :country %>
+  <%= f.text_field :country %>
+
+  <%= f.label :bio %>
+  <%= f.text_field :bio %>
+
   <%= f.hidden_field :tour_guide, value: false %>
 
   <%= f.submit "Submit" %>
