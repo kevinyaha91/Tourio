@@ -42,7 +42,9 @@ function codeLatLng(latitude, longitude){
     geocoder.geocode({'latLng': latlng}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
       	var locationInfo = document.getElementById("demo");
-      	locationInfo.innerHTML=results[3].formatted_address;
+      	locationInfo.innerHTML=results[2].formatted_address;
+        var address =results[2].formatted_address;
+        delivery(address);
       } else {
         alert("Geocoder failed due to: " + status);
       }
@@ -53,6 +55,21 @@ function showPosition(position) {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude; 
     codeLatLng(latitude, longitude);
+}
+
+function delivery(address){
+$.ajax({
+    type: "POST",
+    url: "/nearby_guides",
+    data: "address=" + address,
+    success: function (address){
+      console.log("it worked 8===D");
+    },
+    failure: function(){
+      console.log("FUCKING AJAX");
+    },
+    dataType: "json"
+  });
 }
 
 </script>
