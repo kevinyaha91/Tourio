@@ -64,16 +64,17 @@ $.ajax({
     type: "POST",
     url: "/nearby_guides",
     data: "address=" + address,
-    success: function (address){
+    success: function (json){
       console.log("ajax sent");
-    },
+    document.getElementById("text").innerHTML =
+    json[0].firstname;
+  },
     failure: function(){
       console.log("ajax failed");
     },
-    dataType: "text"
+    dataType: "json"
   });
 }
 
 </script>
-
-
+<div id='text'> </div>

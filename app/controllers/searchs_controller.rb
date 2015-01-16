@@ -15,7 +15,9 @@ def nearby_guides
 	country = initial_array[2]
 	@result = User.where("city = ?", city)
 	respond_to do |format|
-		format.html {render :partial => 'searchs/result.html.erb', object: @result}
+		
+		format.json { render :json => @result }
+    	format.html { render 'nearby_guides' }
 	end
 end
 
