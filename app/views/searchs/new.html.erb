@@ -1,5 +1,7 @@
 <%= render 'nav' %>
 
+<%= render 'result' %>
+
 <h1>Welcome to no paid tour guide app</h1>
 
 <p>Welcome:</p>
@@ -63,12 +65,12 @@ $.ajax({
     url: "/nearby_guides",
     data: "address=" + address,
     success: function (address){
-      console.log("it worked 8===D");
+      console.log("ajax sent");
     },
     failure: function(){
-      console.log("FUCKING AJAX");
+      console.log("ajax failed");
     },
-    dataType: "json"
+    dataType: "text"
   });
 }
 
