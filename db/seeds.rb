@@ -38,52 +38,10 @@ users = User.create!(
 		password: "123",
 		tour_guide: false
 )
+
+
 users = User.create!(
-		email:"eric@gmail.com",
-		firstname: "NIGGA1",
-		lastname: "NIGGA",
-		bio: "cool",
-		city: "Rancho Cucamonga",
-		state: "CA",
-		country: "USA",
-		password: "123",
-		tour_guide: true
-)
-users = User.create!(
-		email:"eric@gmail.com",
-		firstname: "NIGGA2",
-		lastname: "NIGGA",
-		bio: "cool",
-		city: "Rancho Cucamonga",
-		state: "CA",
-		country: "USA",
-		password: "123",
-		tour_guide: true
-)
-users = User.create!(
-		email:"eric@gmail.com",
-		firstname: "NIGGA3",
-		lastname: "NIGGA",
-		bio: "cool",
-		city: "Rancho Cucamonga",
-		state: "CA",
-		country: "USA",
-		password: "123",
-		tour_guide: true
-)
-users = User.create!(
-		email:"eric@gmail.com",
-		firstname: "NIGGA4",
-		lastname: "NIGGA",
-		bio: "cool",
-		city: "Rancho Cucamonga",
-		state: "CA",
-		country: "USA",
-		password: "123",
-		tour_guide: true
-)
-users = User.create!(
-		email:"eric@gmail.com",
+		email:"Larry@gmail.com",
 		firstname: "Larry",
 		lastname: "Smith",
 		bio: "cool",
@@ -94,7 +52,7 @@ users = User.create!(
 		tour_guide: true
 )
 users = User.create!(
-		email:"eric@gmail.com",
+		email:"Daniel@gmail.com",
 		firstname: "Daniel",
 		lastname: "Atkins",
 		bio: "cool",
