@@ -44,8 +44,8 @@ function codeLatLng(latitude, longitude){
     geocoder.geocode({'latLng': latlng}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
       	var locationInfo = document.getElementById("demo");
-      	locationInfo.innerHTML=results[2].formatted_address;
-        var address =results[2].formatted_address;
+      	locationInfo.innerHTML=results[4].formatted_address;
+        var address = results[4].formatted_address;
         delivery(address);
       } else {
         alert("Geocoder failed due to: " + status);
@@ -66,9 +66,34 @@ $.ajax({
     data: "address=" + address,
     success: function (json){
       console.log("ajax sent");
-    document.getElementById("text").innerHTML =
-    json[0].firstname;
-  },
+    for (var i = 0; i <= json.length - 1; i++ ) {
+
+      newdiv = document.createElement('div');
+      divClassName = 'result';
+      newdiv.setAttribute('class',divClassName);
+      newdiv.innerHTML = json[i].firstname;
+      document.body.appendChild(newdiv);
+
+      newdiv = document.createElement('div');
+      divClassName = 'result';
+      newdiv.setAttribute('class',divClassName);
+      newdiv.innerHTML = json[i].lastname;
+      document.body.appendChild(newdiv);
+
+      newdiv = document.createElement('div');
+      divClassName = 'result';
+      newdiv.setAttribute('class',divClassName);
+      newdiv.innerHTML = json[i].bio;
+      document.body.appendChild(newdiv);
+
+      newdiv = document.createElement('div');
+      divClassName = 'result';
+      newdiv.setAttribute('class',divClassName);
+      newdiv.innerHTML = "<a href='#' onclick=showUser(" + json[i].id + ")>click</a>";
+      document.body.appendChild(newdiv);
+
+      }   
+    },
     failure: function(){
       console.log("ajax failed");
     },
@@ -76,5 +101,19 @@ $.ajax({
   });
 }
 
+function showUser(id) {
+  $.ajax({
+    type: "POST",
+    url: "/single_person",
+    data: "user_id=" + id,
+    success: function(json) {
+      console.log('received');
+    },
+    failure: function() {
+      console.og('fail');
+    } 
+  });
+}
+
 </script>
-<div id='text'> </div>
+<div id='text'></div>

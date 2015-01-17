@@ -6,7 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 users = User.create!(
-
 		email:"kevin@gmail.com",
 		firstname: "Kevin",
 		lastname: "Yang",
@@ -38,4 +37,70 @@ users = User.create!(
 		country: "us",
 		password: "123",
 		tour_guide: false
+)
+users = User.create!(
+		email:"eric@gmail.com",
+		firstname: "NIGGA1",
+		lastname: "NIGGA",
+		bio: "cool",
+		city: "Rancho Cucamonga",
+		state: "CA",
+		country: "USA",
+		password: "123",
+		tour_guide: true
+)
+users = User.create!(
+		email:"eric@gmail.com",
+		firstname: "NIGGA2",
+		lastname: "NIGGA",
+		bio: "cool",
+		city: "Rancho Cucamonga",
+		state: "CA",
+		country: "USA",
+		password: "123",
+		tour_guide: true
+)
+users = User.create!(
+		email:"eric@gmail.com",
+		firstname: "NIGGA3",
+		lastname: "NIGGA",
+		bio: "cool",
+		city: "Rancho Cucamonga",
+		state: "CA",
+		country: "USA",
+		password: "123",
+		tour_guide: true
+)
+users = User.create!(
+		email:"eric@gmail.com",
+		firstname: "NIGGA4",
+		lastname: "NIGGA",
+		bio: "cool",
+		city: "Rancho Cucamonga",
+		state: "CA",
+		country: "USA",
+		password: "123",
+		tour_guide: true
+)
+users = User.create!(
+		email:"eric@gmail.com",
+		firstname: "Larry",
+		lastname: "Smith",
+		bio: "cool",
+		city: "Pasadena",
+		state: "CA",
+		country: "USA",
+		password: "123",
+		tour_guide: true
+)
+users = User.create!(
+		email:"eric@gmail.com",
+		firstname: "Daniel",
+		lastname: "Atkins",
+		bio: "cool",
+		city: "Pasadena",
+		state: "CA",
+		country: "USA",
+		password: "123",
+		tour_guide: true
 )

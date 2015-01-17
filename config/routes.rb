@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   resources :sessions
   resources :searchs
+  resources :contracts
 
 
   get '/login' => 'sessions#new'
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   post '/users' => 'users#create'
 
   post '/nearby_guides' => 'searchs#nearby_guides'
+  post '/single_person' => 'contracts#single_person'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
