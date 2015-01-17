@@ -4,10 +4,4 @@ class ContractsController < ApplicationController
 		user = params[:user]
 		@user = User.where(id: user).to_a
 	end
-
-	def single_person
-		user = User.find(params[:user_id])
-		user_id = user.id
-		render :js => "window.location = #{new_contract_path(:user => user_id).to_json}"
-	end	
 end

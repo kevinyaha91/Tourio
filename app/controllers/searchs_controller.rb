@@ -3,7 +3,6 @@ class SearchsController < ApplicationController
 	def new
 		@current_user = User.find(params[:user_id])
 		@tour_guide = @current_user.tour_guide
-
 	end
 
 	def nearby_guides
@@ -19,5 +18,16 @@ class SearchsController < ApplicationController
 			format.json { render :json => @result }
 	    	format.html { render 'nearby_guides' }
 		end
+	end
+
+	def single_person
+		user = User.find(params[:user_id])
+		user_id = user.id
+		render :js => "window.location = #{search_path(:id => user_id).to_json}"
+	end
+
+	def show
+		user = params[:id]
+		@user = User.where(id: user).to_a
 	end
 end

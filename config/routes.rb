@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   post '/users' => 'users#create'
 
   post '/nearby_guides' => 'searchs#nearby_guides'
-  post '/single_person' => 'contracts#single_person'
+  post '/single_person' => 'searchs#single_person'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
