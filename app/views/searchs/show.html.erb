@@ -3,3 +3,11 @@
 First Name: <%= @user[0].firstname %></br>
 Last Name: <%= @user[0].lastname %></br>
 Bio: <%= @user[0].bio %>
+
+
+<%= form_for(:contract, :url => url_for(:controller => 'contracts', :action => 'create')) do |f| %>
+	<%= f.hidden_field :contractor_id, value: current_user.id %>
+	<%= f.hidden_field :contractee_id, value: @user[0].id %>
+	<%= f.hidden_field :confirmation, value: false %>
+	<%= f.submit "Request Tour" %>
+<% end %>

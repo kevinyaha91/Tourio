@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   end
   resources :sessions
   resources :searchs
-  resources :contracts
+  resources :contracts do
+    get 'confirmation', to: 'contracts#confirmation'
+  end
 
+  get 'request_notification', to: 'contracts#request_notification'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

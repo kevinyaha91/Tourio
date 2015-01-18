@@ -1,0 +1,16 @@
+<h1>Contracts wating for your confirmation</h1>
+
+<% @contracts.each do |c| %>
+
+	<% User.where(id: c.contractor_id).each do |p| %>
+		<%= p.firstname %>
+		<%= p.lastname %>
+	<% end %>
+	
+	<% if current_user.id == c.contractee_id %>
+		<%= form_for(:contract, :url => url_for(:controller => 'contracts', :action => 'confirmation')), method: :get do |f| %>
+        <%= f.hidden_field :contract_id, value: c.id %>
+        <%= f.submit "Accept the Tour Request" %>
+		<% end %>
+	<% end %>
+<% end %>

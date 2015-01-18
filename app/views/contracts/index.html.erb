@@ -1,25 +1,23 @@
 <h2> Pending Contracts </h2>
 
-<%= @contracts. each do |contract|%>
-	Tour Guide: <%= User.where(id: contract.contractee_id).each do |user| %>
+<% @contracts. each do |contract|%>
+	<h4>Tour Guide:</h4> <% User.where(id: contract.contractee_id).each do |user| %>
 		<%= user.firstname %> 
 		<%= user.lastname %>
 		<%= user.bio %>
 		<% end %>
 
-	Visitor: <%= User.where(id: contract.contractor_id).each do |user| %>
+	<h4>Visitor:</h4> <% User.where(id: contract.contractor_id).each do |user| %>
 		<%= user.firstname %> 
 		<%= user.lastname %>
-		<%= user.bio %>
 		<% end %>
 
 
 
-	<% if current_user.id = contract.contractee_id %>
-	<%= form_for(:contract, :url => url_for(:controller => 'contracts', :action => 'confirmation')) do |f| %>
+	<% if current_user.id == contract.contractee_id %>
+		<%= form_for(:contract, :url => url_for(:controller => 'contracts', :action => 'confirmation')) do |f| %>
         <%= f.hidden_field :contract_id, value: @contract.id %>
         <%= f.submit "Accept the Tour Request" %>
-
-			<% end %>
 		<% end %>
+	<% end %>
 <% end %>
