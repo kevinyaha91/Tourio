@@ -1,8 +1,9 @@
 <%= link_to "Logout", '/logout' %>
 
-<% if Contract.where(contractee_id: @current_user.id) %>
+<% if Contract.exists?(:contractee_id=>@current_user.id, :confirmation=>false)  %>
 <%= link_to "You have a pending contract", request_notification_path(:current_user => @current_user.id) %>
 <% end %>
+
 
 <% if @current_user.tour_guide == false %>
 	<%= form_tag user_activate_tour_guide_path(:user_id => @current_user.id), method: :get do  %>

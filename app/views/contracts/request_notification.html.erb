@@ -7,10 +7,9 @@
 		<%= p.lastname %>
 	<% end %>
 	
-	<% if current_user.id == c.contractee_id %>
-		<%= form_for(:contract, :url => url_for(:controller => 'contracts', :action => 'confirmation')), method: :get do |f| %>
+<%= form_for :contract, :url => contract_confirmation_path(:contract_id => c.id) do |f| %>		
         <%= f.hidden_field :contract_id, value: c.id %>
         <%= f.submit "Accept the Tour Request" %>
 		<% end %>
-	<% end %>
+
 <% end %>

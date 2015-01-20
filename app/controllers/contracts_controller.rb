@@ -28,6 +28,7 @@ class ContractsController < ApplicationController
 		contract = Contract.find(params[:contract_id])
 		contract.confirmation = true
 		contract.save
+		redirect_to searchs_new_path
 	end
 
 end
