@@ -16,3 +16,5 @@
 	  	<%= submit_tag 'Tour off Tour Guide' %>
 	<% end %>
 <% end %>
+
+<%= link_to "Accepted Contracts", contract_accepted_path(:contract_id =>@current_user.id) %>

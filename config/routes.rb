@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :searchs
   resources :contracts do
     post 'confirmation', to: 'contracts#confirmation'
+    get 'accepted', to: 'contracts#accepted'
   end
 
   get 'request_notification', to: 'contracts#request_notification'

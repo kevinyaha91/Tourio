@@ -10,9 +10,9 @@ users = User.create!(
 		firstname: "Kevin",
 		lastname: "Yang",
 		bio: "damn",
-		city: "la",
-		state: "ca",
-		country: "us",
+		city: "Los Angeles County",
+		state: "CA",
+		country: "USA",
 		password: "123",
 		tour_guide: true
 )

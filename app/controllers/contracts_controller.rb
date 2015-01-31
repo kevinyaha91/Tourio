@@ -31,4 +31,16 @@ class ContractsController < ApplicationController
 		redirect_to searchs_new_path
 	end
 
+
+	def show
+		@contract = Contract.find(params[:contract_id])
+	end
+
+	def accepted
+		@contractor = Contract.where('contractor_id = ? AND confirmation = ?', params[:contract_id], true )
+		@contractee = Contract.where('contractee_id = ? AND confirmation = ?', params[:contract_id], true )
+	end
+
+
+
 end

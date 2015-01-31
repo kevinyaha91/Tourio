@@ -1,0 +1,31 @@
+<h2> Accepted Contracts </h2>
+
+
+<h3> People taking you around </h3>
+<% if @contractor.exists? %>
+
+<% @contractor.each do |contract| %>
+	<h4>Your Tour Guide:</h4> <% User.where(id: contract.contractee_id).each do |user| %>
+		<%= user.firstname %> 
+		<%= user.lastname %>
+		<%= user.bio %>
+		<% end %>
+	<% end %>
+<% else %>
+<h3> You have no contracts </h3>
+<% end %>
+
+
+<h3> People you are taking around </h3>
+<% if @contractee.exists? %>
+<% @contractee.each do |contract| %>
+	<h4>Your Visitor:</h4> <% User.where(id: contract.contractor_id).each do |user| %>
+		<%= user.firstname %> 
+		<%= user.lastname %>
+		<%= user.bio %>
+		<% end %>
+	<% end %>
+<% else %>
+<h3> You have no contracts </h3>
+<% end %>
+
